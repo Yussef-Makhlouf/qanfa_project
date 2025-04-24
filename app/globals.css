@@ -1,0 +1,83 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root {
+    --primary: 196 28% 31%; /* #375A64 */
+    --primary-accent: 7 100% 68%; /* #FF735D */
+    --error: 359 100% 62%; /* #FF3C3F */
+    --background: 0 0% 100%; /* #FFFFFF */
+    --foreground: 0 0% 21%; /* #363636 */
+    --card: 0 0% 100%; /* #FFFFFF */
+    --card-foreground: 0 0% 21%; /* #363636 */
+    --muted: 0 0% 95%; /* #F2F2F2 */
+    --muted-foreground: 0 0% 35%; /* #5A5A5A */
+    --input: 0 0% 97%; /* #F8F8F8 */
+    --input-border: 0 0% 0% 0.1; /* #0000001A */
+    --radius: 0.75rem;
+  }
+}
+
+@layer base {
+  * {
+    @apply border-border;
+    font-family: 'The Year of Handicrafts', sans-serif;
+  }
+  body {
+    @apply bg-background text-foreground;
+    font-feature-settings: "rlig" 1, "calt" 1;
+    direction: rtl;
+    font-family: 'The Year of Handicrafts', sans-serif;
+  }
+
+  /* Improve Arabic text rendering */
+  input,
+  button,
+  a,
+  p,
+  h1,
+  h2,
+  h3,
+  h4,
+  h5,
+  h6,
+  label,
+  span,
+  div,
+  li,
+  ul,
+  ol,
+  table,
+  th,
+  td,
+  textarea,
+  select {
+    font-family: 'The Year of Handicrafts', sans-serif;
+    font-feature-settings: "kern" 1, "liga" 1, "calt" 1;
+    text-rendering: optimizeLegibility;
+  }
+}
+
+/* Custom focus styles for better accessibility */
+@layer utilities {
+  .focus-visible-ring {
+    @apply focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#FF735D] focus-visible:ring-offset-2;
+  }
+}
+
+/* Enhance form elements */
+input::placeholder {
+  opacity: 0.6;
+  transition: opacity 0.2s ease;
+}
+
+input:focus::placeholder {
+  opacity: 0.4;
+}
+
+/* Improve text selection */
+::selection {
+  background-color: rgba(255, 115, 93, 0.2);
+  color: #363636;
+}
