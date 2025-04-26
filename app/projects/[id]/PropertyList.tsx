@@ -2,24 +2,25 @@ import { Button } from "@/components/ui/button";
 import { Card, CardContent } from "@/components/ui/card";
 import { ArrowLeft, Heart, MapPin } from "lucide-react";
 import React from "react";
-import NotificationItem from "./NotificationItem";
+// import NotificationItem from "@app/NotificationItem";
 import Image from "next/image";
 import Link from "next/link";
 import { useAuth } from "@/contexts/auth-context";
 import { useFavorites } from "@/contexts/favorites-context";
 import { useNotifications } from "@/app/context/NotificationContext";
+import NotificationItem from "./NotificationItem";
 
 export default function PropertyList() {
     // Data for apartments to enable mapping
     const apartments = [
-        { id: "4", image: "/images/apartment-1.jpg" },
-        { id: "3", image: "/images/apartment-2.jpg" },
-        { id: "2", image: "/images/apartment-3.jpg" },
-        { id: "1", image: "/images/apartment-4.jpg" },
-        { id: "8", image: "/images/apartment-5.jpg" },
-        { id: "7", image: "/images/apartment-6.jpg" },
-        { id: "6", image: "/images/apartment-7.jpg" },
-        { id: "5", image: "/images/apartment-8.jpg" },
+        { id: "4", image: "/example.png" },
+        { id: "3", image: "/example.png" },
+        { id: "2", image: "/example.png" },
+        { id: "1", image: "/example.png" },
+        { id: "8", image: "/example.png" },
+        { id: "7", image: "/example.png" },
+        { id: "6", image: "/example.png" },
+        { id: "5", image: "/example.png" },
     ];
 
     // Project name used in all cards
@@ -44,7 +45,7 @@ export default function PropertyList() {
             </h2>
 
             {/* Apartments grid */}
-            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-5 lg:gap-8">
+            <div className="grid grid-cols-2 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-5 lg:gap-8">
                 {apartments.map((apartment) => (
                     <ApartmentCard 
                         key={apartment.id} 

@@ -117,7 +117,7 @@ export default function FooterSection() {
               </div>
             </div>
 
-            <div className="text-center lg:text-right [font-family:'The_Year_of_Handicrafts-Medium',Helvetica] font-medium text-black text-base sm:text-lg md:text-xl leading-[26px] sm:leading-[30px]">
+            <div className="text-center lg:text-right   font-medium text-black text-base sm:text-lg md:text-xl leading-[26px] sm:leading-[30px]">
               إكتشــــــــــف وحدتــــــــــك السكنيــــــــــه
               <br />
               عبـــــــــر ضغطـــــــــــة زر

@@ -3,7 +3,7 @@ import { Heart, Play } from "lucide-react";
 import Image from "next/image";
 import React from "react";
 
-export default function GallerySection(){
+export default function GallerySection() {
   // Data for project images
   const projectImages = [
     { type: "image", src: "/images/interior-1.jpg", placeholder: true },
@@ -24,7 +24,7 @@ export default function GallerySection(){
 
       <div className="flex flex-col gap-8 sm:gap-12 md:gap-[80px]">
         {/* First row of images */}
-        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4 sm:gap-5">
+        <div className="grid grid-cols-2 sm:grid-cols-2 lg:grid-cols-4 gap-4 sm:gap-5">
           {projectImages.slice(0, 4).map((image, index) => (
             <div
               key={`image-${index}`}
@@ -65,7 +65,7 @@ export default function GallerySection(){
         </div>
 
         {/* Second row of images */}
-        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4 sm:gap-5">
+        <div className="grid grid-cols-2 sm:grid-cols-2 lg:grid-cols-4 gap-4 sm:gap-5">
           {projectImages.slice(4, 8).map((image, index) => (
             <div
               key={`image-${index + 4}`}
@@ -88,17 +88,6 @@ export default function GallerySection(){
                             + {image.count}
                           </span>
                         </div>
-
-
-
-
-
-
-
-
-
-
-
                       </div>
                     ) : (
                       <div className="relative w-full aspect-[379/326] rounded-[20px] bg-[#F2F2F2] overflow-hidden">
@@ -121,4 +110,5 @@ export default function GallerySection(){
       </div>
     </section>
 
-  )}
+  )
+}

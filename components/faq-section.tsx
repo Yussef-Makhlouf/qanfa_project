@@ -50,10 +50,10 @@ export default function FaqSection(): JSX.Element {
               value={`item-${index}`}
               className="bg-white rounded-[40px] border-none shadow-sm"
             >
-              <AccordionTrigger className="px-6 py-8 [font-family:'The_Year_of_Handicrafts-Medium',Helvetica] font-medium text-[22px] hover:no-underline">
+              <AccordionTrigger className="px-6 py-8   font-medium text-[22px] hover:no-underline">
                 {item.question}
               </AccordionTrigger>
-              <AccordionContent className="px-6 pb-6 [font-family:'The_Year_of_Handicrafts-Medium',Helvetica] text-lg">
+              <AccordionContent className="px-6 pb-6   text-lg">
                 {item.answer}
               </AccordionContent>
             </AccordionItem>

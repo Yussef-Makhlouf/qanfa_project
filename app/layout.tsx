@@ -14,7 +14,6 @@ const handicrafts = localFont({
   variable: "--font-handicrafts",
   display: "swap",
 })
-
 export const metadata: Metadata = {
   title: "منصة قنفه - Qanfa Platform",
   description: "منصة قنفه للعقارات السكنية",

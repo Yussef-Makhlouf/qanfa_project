@@ -3,12 +3,13 @@
 import React, { useEffect } from "react";
 import { useGuidanceNotifications, guidanceSteps } from "@/app/hooks/useGuidanceNotifications";
 import ProjectHero from '@/components/project_hero';
-import GallerySection from './GallerySection';
+// import GallerySection from '../GallerySection';
 import TestimonialsSection from '@/components/testimonials-section';
 import FooterSection from '@/components/footer';
 import PropertyList from './PropertyList';
 import { useAuth } from "@/contexts/auth-context";
 import LoggedInHeader from '@/components/LoggedInHeader';
+import GallerySection from "./GallerySection";
 
 interface PageProps {
   params: {
