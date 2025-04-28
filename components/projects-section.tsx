@@ -2,6 +2,7 @@ import { Card, CardContent } from "@/components/ui/card";
 import { ArrowLeft, Home } from "lucide-react";
 import React from "react";
 import Image from "next/image";
+import Link from "next/link";
 
 export default function ProjectsGallerySection(): React.ReactElement {
   // Project data for mapping
@@ -98,9 +99,11 @@ function ProjectCard({ title, units, index, imageUrl }: { title: string; units: 
 
         {/* View more button */}
         <div className="group flex items-center justify-start gap-4 cursor-pointer transition-colors hover:text-[#FF735D]">
+         <Link href={`/projects/${index + 1}`}>
           <span className=" text-base font-black text-[#FF735D]">
             رؤيــــة المزيـــد
           </span>
+          </Link>
           <svg 
             width="20" 
             height="21" 

@@ -145,9 +145,12 @@ function ApartmentCard({ id, image }: { id: string; image: string }) {
                 {/* View more button */}
                 <Link href={`/properties/${id}`}>
                     <div className="group flex items-center justify-start gap-4 cursor-pointer transition-colors hover:text-[#FF735D]" dir="rtl">
+                        <Link href={`/properties/${id}`}>
                         <span className=" text-base font-black text-[#FF735D]">
                             رؤيــــة المزيـــد
                         </span>
+                        </Link>
+                      
                         <ArrowLeft 
                             className="w-5 h-5 transition-transform group-hover:translate-x-2" 
                         />

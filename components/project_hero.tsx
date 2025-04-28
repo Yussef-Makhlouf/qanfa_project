@@ -20,6 +20,56 @@ export default function ProjectHero() {
     const { isLoggedIn } = useAuth();
     const { addFavorite, removeFavorite, isFavorite } = useFavorites();
     const { addNotification } = useNotifications();
+    const handleShareClick = async () => {
+        // Project details to share
+        const projectTitle = "مشـــروع الفـــلاح للإسكــــان";
+        const projectDescription = "مشروع الفلاح للإسكان هو مجتمع سكني حديث يوفر شققا مريحة ومرافق متكاملة";
+        const projectUrl = window.location.href;
+        
+        try {
+            // Check if the Web Share API is available
+            if (navigator.share) {
+                await navigator.share({
+                    title: projectTitle,
+                    text: projectDescription,
+                    url: projectUrl,
+                });
+                
+                // Show success notification
+                addNotification({
+                    stepNumber: 1,
+                    title: "تمت المشاركة",
+                    subtitle: "مشاركة",
+                    content: "تمت مشاركة المشروع بنجاح",
+                    durationInSeconds: 3
+                });
+            } else {
+                // Fallback for browsers that don't support the Web Share API
+                // Copy the URL to clipboard
+                await navigator.clipboard.writeText(projectUrl);
+                
+                // Show notification
+                addNotification({
+                    stepNumber: 1,
+                    title: "تم نسخ الرابط",
+                    subtitle: "مشاركة",
+                    content: "تم نسخ رابط المشروع إلى الحافظة",
+                    durationInSeconds: 3
+                });
+            }
+        } catch (error) {
+            console.error("Error sharing:", error);
+            
+            // Show error notification
+            addNotification({
+                stepNumber: 1,
+                title: "خطأ في المشاركة",
+                subtitle: "مشاركة",
+                content: "حدث خطأ أثناء محاولة مشاركة المشروع",
+                durationInSeconds: 3
+            });
+        }
+    };
     
     // Assuming the project ID is "1" for demonstration
     const projectId = "1";
@@ -170,17 +220,22 @@ export default function ProjectHero() {
             <div className="flex flex-col lg:flex-row items-start gap-6 lg:gap-[100px] max-w-[1530px] mx-auto px-4 relative" dir="rtl">
                 {/* Right side - Logo/Icon section */}
                 <div className="absolute left-4 top-0 flex items-center gap-2 w-[104px] h-12">
-                    <button 
-                        className={`flex justify-center items-center w-12 h-12 p-2.5 ${isFavorited ? 'bg-[#FF735D]' : 'bg-[#F8F8F8]'} rounded-[18px] backdrop-blur-[22.5px]`} 
-                        aria-label="Like"
-                        onClick={handleFavoriteClick}
-                    >
-                        <HeartIcon className={`w-6 h-6 ${isFavorited ? 'text-white' : 'text-black'}`} />
-                    </button>
-                    <button className="flex justify-center items-center w-12 h-12 p-2.5 bg-[#F8F8F8] rounded-[18px] backdrop-blur-[40px]" aria-label="Share">
-                        <Share2Icon className="w-[18px] h-[18px] text-[#1C274C]" />
-                    </button>
-                </div>
+    <button 
+        className={`flex justify-center items-center w-12 h-12 p-2.5 ${isFavorited ? 'bg-[#FF735D]' : 'bg-[#F8F8F8]'} rounded-[18px] backdrop-blur-[22.5px]`} 
+        aria-label="Like"
+        onClick={handleFavoriteClick}
+    >
+        <HeartIcon className={`w-6 h-6 ${isFavorited ? 'text-white' : 'text-black'}`} />
+    </button>
+    <button 
+        className="flex justify-center items-center w-12 h-12 p-2.5 bg-[#F8F8F8] rounded-[18px] backdrop-blur-[40px] hover:bg-gray-200 transition-colors" 
+        aria-label="Share"
+        onClick={handleShareClick}
+    >
+        <Share2Icon className="w-[18px] h-[18px] text-[#1C274C]" />
+    </button>
+</div>
+
                 {/* Main content section */}
                 <div className="flex flex-col-reverse lg:flex-row-reverse items-center gap-6 lg:gap-[100px] flex-1 w-full order-2 lg:order-none">
                     {/* Left side - Property information */}

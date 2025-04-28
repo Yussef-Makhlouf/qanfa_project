@@ -21,9 +21,11 @@ export default function PropertyPage({ params }: PropertyPageProps) {
 
   return (
     <>
-      {isLoggedIn && <LoggedInHeader />}
+      {/* {isLoggedIn && <LoggedInHeader />} */}
       <main className="min-h-screen" dir="rtl">
-        <Header />
+        <div className="pb-4">
+          <Header />
+        </div>
         <HeaderContainer />
         {/* <div className="container mx-auto px-4 pt-[120px]">
 

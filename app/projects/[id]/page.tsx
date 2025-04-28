@@ -37,7 +37,7 @@ export default function ProjectDetailsPage({ params }: PageProps) {
 
   return (
     <>
-      {isLoggedIn && <LoggedInHeader />}
+      {/* {isLoggedIn && <LoggedInHeader />} */}
       <main dir="rtl" className="min-h-screen flex flex-col">
         {/* Hero Section */}
         <section className="w-full bg-white">
